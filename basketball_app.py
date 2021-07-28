@@ -22,7 +22,6 @@ def load_data(year):
     url = "https://2kleague.nba.com/stats/"
     html = pd.read_html(url, header = 0)
     df = html[0]
-    raw = raw.fillna(0)
     playerstats = raw.drop(['Rk'], axis=1)
     return playerstats
 playerstats = load_data(selected_year)

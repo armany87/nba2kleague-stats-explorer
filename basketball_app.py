@@ -24,7 +24,6 @@ def load_data(year):
     df = html[0]
     playerstats = raw.drop(['Rk'], axis=1)
     return playerstats
-playerstats = load_data(selected_year)
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Tm.unique())

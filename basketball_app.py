@@ -24,7 +24,9 @@ def load_data(year):
     html = pd.read_html(url, header = 0)
     df = html[0]
    
-<section class="content-wrap league-leaders league-leaders_view_page league-leaders__stats-page" ng-controller="LeagueLeadersControllerV2">
+<section>
+
+class="content-wrap league-leaders league-leaders_view_page league-leaders__stats-page" ng-controller="LeagueLeadersControllerV2">
 
 	<h1 class="page-header__title">
 		League Leaders	</h1>

@@ -24,7 +24,42 @@ def load_data(year):
     html = pd.read_html(url, header = 0)
     df = html[0]
    
-<div class="league-leaders__season-type">
+<section class="content-wrap league-leaders league-leaders_view_page league-leaders__stats-page" ng-controller="LeagueLeadersControllerV2">
+
+	<h1 class="page-header__title">
+		League Leaders	</h1>
+
+	<div class="row">
+        <div class="col-sm-3 column stat-page__header-filter">
+
+            <select name="season_filter" id="filter-season" class="filter filter-season ng-pristine ng-untouched ng-valid" ng-model="season_filter.model" ng-options="type.id as type.label for type in season_filter.options" data-track="Click" data-type="games:stats click" data-id="season"><option label="2018" value="string:2018">2018</option><option label="2019" value="string:2019">2019</option><option label="2020" value="string:2020">2020</option><option label="2021" value="string:2021" selected="selected">2021</option></select>
+
+        </div>
+        <div class="col-sm-3 column stat-page__header-filter">
+
+            <select name="stat_type_filter" id="filter-stat-type" class="filter filter-stat-type ng-pristine ng-untouched ng-valid" ng-model="stat_type_filter.model" ng-options="type.id as type.label for type in stat_type_filter.options" data-track="Click" data-type="games:stats click" data-id="stat-type"><option label="Points" value="string:points" selected="selected">Points</option><option label="Rebounds" value="string:rebounds">Rebounds</option><option label="Assists" value="string:assists">Assists</option><option label="Steals" value="string:steals">Steals</option><option label="Blocks" value="string:blocks">Blocks</option><option label="Field Goal %" value="string:fieldgoals">Field Goal %</option><option label="Three Point %" value="string:threepointers">Three Point %</option></select>
+
+        </div>
+		<div class="col-sm-3 column stat-page__header-filter">
+
+			<select name="season_type_filter" id="filter-season-type" class="filter filter-season-type ng-pristine ng-untouched ng-valid" ng-model="season_type_filter.model" ng-options="type.id as type.label for type in season_type_filter.options" data-track="Click" data-type="games:stats click" data-id="season-type"><option label="Tip Off Tournament" value="string:01">Tip Off Tournament</option><option label="Regular Season" value="string:02" selected="selected">Regular Season</option><option label="Playoffs" value="string:04">Playoffs</option><option label="Turn Tournament" value="string:05">Turn Tournament</option><option label="Ticket Tournament" value="string:06">Ticket Tournament</option></select>
+
+		</div>
+		<div class="col-sm-3 column stat-page__header-filter">
+
+			<select name="per_mode_filter" id="filter-per-mode" class="filter filter-per-mode ng-pristine ng-untouched ng-valid" ng-model="per_mode_filter.model" ng-options="type.id as type.label disable when type.disable for type in per_mode_filter.options | hideStatsPerGameDisabledOption" data-track="Click" data-type="games:stats click" data-id="per-mode"><option label="Per Game" value="string:avg" selected="selected">Per Game</option><option label="Totals" value="string:tot">Totals</option></select>
+
+		</div>
+	</div>
+
+	<a style="color: #fff; border: 2px solid; padding: .5em 1em; margin: .5em .5em 1em;" href="https://2kleague.nba.com/stats/2020-league-leaders/" class="btn">2020 League Leaders</a><div class="row league-leaders_view_page-inner">
+		<aside class="row ad-block"><div data-placement="global_page_banner" class="small-12 columns ad-block__wrap"><div id="div-gpt-ad-1590075479790-0" data-google-query-id="CLeZmNWCh_ICFWYDwQodI_0GYQ"><div id="google_ads_iframe_/2117/nba2k/stats_top_728x90_r_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/2117/nba2k/stats_top_728x90_r_0" title="3rd party ad content" name="google_ads_iframe_/2117/nba2k/stats_top_728x90_r_0" width="468" height="60" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" srcdoc="" data-google-container-id="1" style="border: 0px; vertical-align: bottom; visibility: visible;" data-load-complete="true" data-adloox-type="slot" data-adloox-sid="69045348653"></iframe></div></div></div></aside>		<section class="row player-stats__content">
+			<league-loader loading="isLoading"><div class="page-loader ng-hide" ng-show="loading"><div class="page-loader__spinner"></div></div></league-loader>
+			<div league-no-data-msg="noData &amp;&amp; !isLoading"><div ng-show="leagueNoDataMsg" class="no-data ng-hide"><h1>No statistics are currently available for the selected filters. </h1></div></div>
+
+            <div class="league-leaders_view_page-inner" ng-hide="isLoading || noData">
+
+                <div class="league-leaders__season-type">
 
                     <div class="league-leaders__stats-wrapper">
                         <div>
@@ -2979,6 +3014,13 @@ def load_data(year):
                     </div>
 
                 </div>
+            </div>
+
+		</section>
+
+		<aside class="row ad-block"><div data-placement="player_stats_bottom" class="small-12 columns ad-block__wrap"><div id="div-gpt-ad-1590076119069-0" data-google-query-id="CLiZmNWCh_ICFWYDwQodI_0GYQ"><div id="google_ads_iframe_/2117/nba2k/stats_bottom_300x250_r_0__container__" style="border: 0pt none;"><iframe id="google_ads_iframe_/2117/nba2k/stats_bottom_300x250_r_0" title="3rd party ad content" name="google_ads_iframe_/2117/nba2k/stats_bottom_300x250_r_0" width="300" height="250" scrolling="no" marginwidth="0" marginheight="0" frameborder="0" srcdoc="" data-google-container-id="2" style="border: 0px; vertical-align: bottom; visibility: visible;" data-load-complete="true" data-adloox-type="slot" data-adloox-sid="2193503008"></iframe></div></div></div></aside>	</div>
+
+</section>
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(())

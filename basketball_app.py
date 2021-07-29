@@ -19,10 +19,11 @@ selected_year = st.sidebar.selectbox('Year', list(reversed(range(2018,2022))))
 # Web scraping of NBA 2K League player stats
 @st.cache
 def load_data(year):
-    url = "https://2kleague.nba.com/stats/"
+    url = "https://data.nba.com/data/10s/v2015/json/mobile_teams/2KL/2021/league/stats/12_league_leaders_points_02.json"
     html = pd.read_html(url, header = 0)
     df = html[0]
-  
+    playerstats = raw.drop(['Rk'], axis=1)
+    return playerstats
 
 # Sidebar - Team selection
 sorted_unique_team = sorted(playerstats.Tm.unique())

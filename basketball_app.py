@@ -14,7 +14,7 @@ This app performs simple webscraping of NBA 2K League player stats data!
 """)
 
 st.sidebar.header('User Input Features')
-selected_year = st.sidebar.selectbox('Year', list(reversed(range(2018,2021))))
+selected_year = st.sidebar.selectbox('Year', list(reversed(range(2018,2022))))
 
 # Web scraping of NBA 2K League player stats
 @st.cache
